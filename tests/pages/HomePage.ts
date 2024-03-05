@@ -5,7 +5,7 @@ class HomePage{
     page:Page;
 
     constructor(page:Page){
-this.page=page;
+        this.page=page;
     }
 
     async navigate(){
@@ -18,10 +18,6 @@ this.page=page;
 
     getTitle(){
       return  this.page.locator("h1[class='site-title']").allInnerTexts();
-    }
-
-    async clickSubmitBtn(){
-      this.page.locator("p[id='subscribe-submit']").click()
     }
 
      getParagraphText(){
