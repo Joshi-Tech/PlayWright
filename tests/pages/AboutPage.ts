@@ -1,10 +1,11 @@
 import { Page,Locator } from "@playwright/test";
 import BasePage from "./BasePage";
 
-class AboutPage{
+class AboutPage extends BasePage{
     page:Page;
 
     constructor(page:Page){
+        super(page)
         this.page=page;
     }
 
@@ -24,9 +25,9 @@ class AboutPage{
         await this.page.locator("a[href]").click();
     }
 
-    basePage(){
-        return new BasePage(this.page);
-    }
+    // basePage(){
+    //     return new BasePage(this.page);
+    // }
     
 }
 

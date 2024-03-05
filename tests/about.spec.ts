@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
     const context = await browser.newContext();
      page = await context.newPage()
     aboutPage = new AboutPage(page)
-    await aboutPage.basePage().navigateTo(endPoint)        
+    await aboutPage.navigateTo(endPoint)          
 });
 
 test('Page title can be seen as expected', async ({page})=>{
@@ -34,5 +34,4 @@ test('User able to click on desired link', async ({page})=>{
 console.log(await aboutPage.getBlockHeading())
 console.log(await page.title());
 })
-
 })

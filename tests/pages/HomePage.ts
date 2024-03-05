@@ -1,23 +1,25 @@
 import { Page,Locator } from "@playwright/test";
 import { setTimeout } from "timers/promises";
 import BasePage from "./BasePage";
-class HomePage{
-    page:Page;
+class HomePage extends BasePage{
+    page:Page
 
     constructor(page:Page){
+      super(page)
         this.page=page;
     }
 
-    async navigate(){
-      await  this.page.goto('https://automationpanda.com/');
+    async navigateToHomePage(){
+      await this.navigateTo('https://automationpanda.com/')
     }
 
     async typeEmail(email:string){
-      await  this.page.locator("[id='subscribe-email'] input[name='email']").fill(email);
+      await this.inputData("[id='subscribe-email'] input[name='email']", email)
+      await this.submit('#subscribe-submit')
     }
 
     getTitle(){
-      return  this.page.locator("h1[class='site-title']").allInnerTexts();
+      return this.findByCss("h1[class='site-title']").allInnerTexts();
     }
 
      getParagraphText(){
@@ -25,12 +27,12 @@ class HomePage{
  }
 
  getEntryTitleText(){
-  return this.page.locator(".entry-title").allTextContents()
+  return this.findByCss(".entry-title").allTextContents()
 }
 
-    basePage(){
-      return new BasePage(this.page);
-  }
+getHeading(){
+  return this.findByCss('.wp-block-heading')
+}
 }
 
 export default HomePage;

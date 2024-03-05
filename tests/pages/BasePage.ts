@@ -1,13 +1,13 @@
 import { Page,Locator, Browser } from "@playwright/test";
 import {test, expect, chromium} from '@playwright/test'
 class BasePage{
-page:Page;
+ page:Page;
 
-constructor(page:Page){
-   this.page=page;
+constructor(protected page:Page){
+ this.page=page;
 }
 
-async navigateTo(url:string){
+ async navigateTo(url:string){
 await this.page.goto(url);
 }
 
