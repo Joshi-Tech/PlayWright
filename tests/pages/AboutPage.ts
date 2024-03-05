@@ -14,21 +14,16 @@ class AboutPage extends BasePage{
     }
 
     getFollowByEmailTxt(){
-        return this.page.locator("h3>label[for='subscribe-field']").textContent();
+        return this.findByCss("h3>label[for='subscribe-field']").textContent()
     }
 
     getBlockHeading(){
-        return this.page.locator(".wp-block-heading").allTextContents();
+        return this.findByCss(".wp-block-heading").allTextContents()
     }
 
     async clickOnLink(link:string){
-        await this.page.locator("a[href]").click();
+        await this.findByCss("a[href]").click();
     }
-
-    // basePage(){
-    //     return new BasePage(this.page);
-    // }
-    
 }
 
 export default AboutPage;
