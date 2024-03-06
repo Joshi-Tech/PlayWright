@@ -7,7 +7,7 @@ import { url } from 'inspector'
 test.describe('Home page related tests',()=>{
     let homePage: HomePage
     let endPoint="/" 
-    let message = new Message('tests\\messages.properties')
+    let message = new Message('tests/messages.properties')
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
