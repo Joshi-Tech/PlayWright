@@ -1,14 +1,14 @@
-import { Page,Locator, Browser } from "@playwright/test";
+import { Page,Locator, Browser } from "@playwright/test"
 import {test, expect, chromium} from '@playwright/test'
 class BasePage{
- page:Page;
+ page:Page
 
 constructor(protected page:Page){
- this.page=page;
+ this.page=page
 }
 
  async navigateTo(url:string){
-await this.page.goto(url);
+await this.page.goto(url)
 }
 
 async findByLink(link:string){
@@ -27,6 +27,10 @@ findByText(text:string){
   return this.page.locator(text)
 }
 
+findByXpath(xpath:string){
+  return this.page.locator(xpath)
+}
+
 async inputData(locator:string, text:string){
   await this.page.locator(locator).clear()
   await this.page.locator(locator).fill(text)
@@ -38,4 +42,4 @@ async submit(locator:string){
 
 }
 
-export default BasePage;
+export default BasePage

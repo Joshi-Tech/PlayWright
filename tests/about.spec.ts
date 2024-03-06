@@ -1,10 +1,10 @@
 import {test, expect, chromium} from '@playwright/test'
 import AboutPage from './pages/AboutPage'
-import exp from 'constants';
+import exp from 'constants'
 
 test.describe('About page tests',()=>{
-let  followByBlogTxt = 'Follow Blog via Email';
-let aboutPage:AboutPage;
+let  followByBlogTxt = 'Follow Blog via Email'
+let aboutPage:AboutPage
 let endPoint='/about'
 
 test.beforeEach(async ({ page }) => {

@@ -1,22 +1,21 @@
 import {test, expect, chromium} from '@playwright/test'
 import HomePage from './pages/HomePage'
-import FakeData from './fakeData';
-import Message from './Messages';
-import { url } from 'inspector';
+import FakeData from './fakeData'
+import Message from './Messages'
+import { url } from 'inspector'
 test.describe('Home page related tests',()=>{
-    let homePage: HomePage;
-    let endPoint='' 
+    let homePage: HomePage
+    let endPoint="/" 
     let message = new Message('tests\\messages.properties')
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
             headless:false
         })
-        const context = await browser.newContext();
+        const context = await browser.newContext()
       page= await  context.newPage()
         homePage =  new HomePage(page)
-        await homePage.navigateTo('https://automationpanda.com')
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(1000)
         await homePage.navigateTo(endPoint)        
     })
       

@@ -1,16 +1,12 @@
-import { Page,Locator } from "@playwright/test";
-import { setTimeout } from "timers/promises";
-import BasePage from "./BasePage";
+import { Page,Locator } from "@playwright/test"
+import { setTimeout } from "timers/promises"
+import BasePage from "./BasePage"
 class HomePage extends BasePage{
     page:Page
 
     constructor(page:Page){
       super(page)
-        this.page=page;
-    }
-
-    async navigateToHomePage(){
-      await this.navigateTo('https://automationpanda.com/')
+       this.page=page
     }
 
     async typeEmail(email:string){
@@ -19,11 +15,11 @@ class HomePage extends BasePage{
     }
 
     getTitle(){
-      return this.findByCss("h1[class='site-title']").allInnerTexts();
+      return this.findByCss("h1[class='site-title']").allInnerTexts()
     }
 
      getParagraphText(){
-     return this.page.locator("//h2[text()='Title mismatch']/preceding::p").allTextContents()
+      return this.findByXpath("//h2[text()='Title mismatch']/preceding::p").allTextContents()
  }
 
  getEntryTitleText(){
@@ -35,4 +31,4 @@ getHeading(){
 }
 }
 
-export default HomePage;
+export default HomePage

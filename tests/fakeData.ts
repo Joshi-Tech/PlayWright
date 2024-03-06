@@ -7,4 +7,4 @@ class FakeData{
     }
 }
 
-export default FakeData;
+export default FakeData
