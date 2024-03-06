@@ -1,4 +1,4 @@
-import { Page,Locator } from "@playwright/test"
+import { Page} from "@playwright/test"
 import { setTimeout } from "timers/promises"
 import BasePage from "./BasePage"
 class HomePage extends BasePage{

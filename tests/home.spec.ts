@@ -1,4 +1,5 @@
-import {test, expect, chromium} from '@playwright/test'
+import {test, expect} from '@playwright/test'
+import {chromium} from '@playwright/test'
 import HomePage from './pages/HomePage'
 import FakeData from './fakeData'
 import Message from './Messages'
