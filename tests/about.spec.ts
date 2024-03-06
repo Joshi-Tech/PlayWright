@@ -9,7 +9,7 @@ let endPoint='/about'
 
 test.beforeEach(async ({ page }) => {
     const browser = await chromium.launch({
-        headless:false
+        headless:true
     })
     const context = await browser.newContext();
      page = await context.newPage()
