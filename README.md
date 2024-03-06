@@ -18,11 +18,11 @@ Playwright is a one of the popular automation tool. I would say it is an one sto
 ### How to run tests?
 * Open up IDE terminal.
 * If you wish to run all test then give following command
-   **npx playwright test <directory name>** e.g. npx playwright test tests
+   **npx playwright test <directory name>** e.g. `npx playwright test tests`
 * If you wish to run tests under a particular file. Then
-   **npx playwright test <directory name>/<file name>** e.g. npx playwright test tests/home.spec.ts
+   **npx playwright test <directory name>/<file name>** e.g. `npx playwright test tests/home.spec.ts`
 * If you wish to run tests with limiting workers, you can do so by following command
-   **npx playwright test --workers <number of workers>** e.g. npx playwright test --workers 2
+   **npx playwright test --workers <number of workers>** e.g. `npx playwright test --workers 2`
 
 ### How to view test report?
 * Playwright provides very clear and nice report in HTML form. Which can be seen by giving below command in the terminal
