@@ -27,6 +27,10 @@ class Message {
   getMessage(key: string): string | undefined {
     return this.messages[key];
   }
+
+  getListOfStrings(key:string): string[] | undefined{ 
+    return  this.getMessage(key)?.split(' | ')
+  }
 }
 
 export default Message;

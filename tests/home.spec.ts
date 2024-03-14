@@ -1,9 +1,6 @@
-import {test, expect} from '@playwright/test'
-import {chromium} from '@playwright/test'
-import HomePage from './pages/HomePage'
-import FakeData from './fakeData'
+import { chromium, expect, test } from '@playwright/test'
 import Message from './Messages'
-import { url } from 'inspector'
+import HomePage from './pages/HomePage'
 test.describe('Home page related tests',()=>{
     let homePage: HomePage
     let endPoint="/" 
@@ -11,7 +8,7 @@ test.describe('Home page related tests',()=>{
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
-            headless:true
+            headless:false
         })
         const context = await browser.newContext()
       page= await  context.newPage()
@@ -21,19 +18,19 @@ test.describe('Home page related tests',()=>{
     })
       
 
-    test('Open Home Page and verify entry title', async({page})=>{
-        expect((await homePage.getEntryTitleText()).at(0)).toContain('Software Engineering Seniority')
-        expect(await homePage.getHeading().nth(1).textContent()).toEqual('Population at each level') 
+    test('All h2 and h4 text can be seen as expected', async()=>{
+expect(await homePage.getH2Text()).toEqual(message.getListOfStrings('homePage.h2Text'))
+expect((await homePage.getHeading()).slice(1,3)).toEqual(message.getListOfStrings('homePage.h4Text')?.slice(1,3))
     })
 
-    test('Type email id', async({page})=>{
-       await homePage.typeEmail(FakeData.getEmailId())
- expect(await homePage.getTitle()).toContainEqual('AUTOMATION PANDA')
+    test('Table Header text matches', async()=>{
+       //await homePage.hoverAndClick()
+     expect((await homePage.getTableHeaderText()).slice(0,3)).toEqual(message.getListOfStrings('homePage.tableRowsContents'))
     })
 
-    test('Text of various Paragaraph matches in the Home Page', async({page})=>{
-      expect(await homePage.getParagraphText()).toContainEqual(message.getMessage('homePage.salaryRanges'))
-      expect(await homePage.getParagraphText()).toContainEqual(message.getMessage('homePage.seniorityText'))
-      expect(await homePage.getParagraphText()).toContainEqual(message.getMessage("homePage.staffLevel"))
+    test('Data for type of testing matches are as expected', async()=>{
+       expect(await homePage.getTableData('Mobile')).toEqual(message.getListOfStrings('homePage.mobileType'))
+       expect(await homePage.getTableData('Web/Desktop')).toEqual(message.getListOfStrings('homePage.wedDesktop'))
+       expect(await homePage.getTableData('Performance')).toEqual(message.getListOfStrings('homePage.performance'))
      })
 })
