@@ -13,7 +13,7 @@ test.describe('Home page related tests',()=>{
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
-            headless:false
+            headless:true
         })
         const context = await browser.newContext()
       page= await  context.newPage()
