@@ -16,8 +16,12 @@ class ToolTipsPage extends BasePage{
     }
 
     async getToolTipText(firstName:string, lastName:string,address:string){
-        await this.goToFrame(firstName,lastName,address)
+        await this.goToFormBaseIframe(firstName,lastName,address)
     }
+
+    /**
+     * Below code is when need to move from one tab to another
+     */
 
     async clickOnATab(tabName:string){
         await this.page.waitForTimeout(2000)

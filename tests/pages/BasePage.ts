@@ -4,7 +4,10 @@ class BasePage{
 
 constructor(page:Page){
  this.page=page
+ page.waitForTimeout(2000)
+ if(page.url()==='https://www.globalsqa.com/'){
  this.clickByText("//p[text()='Consent']")
+}
 }
 
  async navigateTo(url:string){
@@ -81,7 +84,7 @@ await this.page.waitForTimeout(5000);
  * Below code is how to handle iframe
  */
 
-async goToFrame(firstName:string, lastName:string,address:string){
+async goToFormBaseIframe(firstName:string, lastName:string,address:string){
   //wait for the iframe to be present. Provide actual locator of the iframe i.e. one in the iframe tag
  const frame= this.page.waitForSelector("//iframe[contains(@data-src,'forms.html')]")
  //Swith to the context of the iframe
@@ -92,5 +95,7 @@ async goToFrame(firstName:string, lastName:string,address:string){
  await iframeContents?.fill('input#address',address)
 }
 }
+
+
 
 export default BasePage

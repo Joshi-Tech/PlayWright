@@ -19,7 +19,8 @@ test.describe('Home page related tests',()=>{
        samplePageTest =  new SamplePageTest(page)
       homePage = new HomePage(page)
     await page.waitForTimeout(1000)
-        await homePage.navigateTo(endPoint)        
+        await homePage.navigateTo(endPoint) 
+        await homePage.findByText("//p[text()='Consent']").click()      
     })
       
 

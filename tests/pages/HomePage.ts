@@ -82,9 +82,9 @@ async clickOnSamplePageTestLink(){
   await this.findByCss("#menu-item-2846>a").click()
 }
 
-async hoverAndClick(){
- await this.mutipleHovering("#menu-item-2822","//span[text()='Demo Testing Site']")
- await this.findByText("//span[text()='Tooltip']").click()
+async hoverAndClick(link:string,subLink:string){
+ await this.mutipleHovering("#menu-item-2822","//span[text()='"+link+"']")
+ await this.findByText("//span[text()='"+subLink+"']").click()
 }
 
 }

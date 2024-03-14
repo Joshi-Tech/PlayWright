@@ -24,7 +24,7 @@ test.describe('Home page related tests',()=>{
     })
     
     test('User should be able to different tabs',async()=>{
-       await homePage.hoverAndClick()
+       await homePage.hoverAndClick("Demo Testing Site","Tooltip")
         expect(await toolTipPage.getCloseAttentionMsg('Country')).toEqual('Verify image based tooltip by moving your cursor to Country.')
         await toolTipPage.clickOnATab('Video Based')
         expect(await toolTipPage.getCloseAttentionMsg('video')).toEqual('Verify tooltip on video buttons.')
@@ -33,13 +33,13 @@ test.describe('Home page related tests',()=>{
     })
 
     test('User should be able to submit form which inside iframe',async()=>{
-        await homePage.hoverAndClick()
+      await homePage.hoverAndClick("Demo Testing Site","Tooltip")
         await toolTipPage.clickOnATab('Forms Based')
       await toolTipPage.getToolTipText(FakeData.firstName(),FakeData.lastName(),FakeData.address())
      })
 
      test('Tool tip text can be seen',async()=>{
-        await homePage.hoverAndClick()
+      await homePage.hoverAndClick("Demo Testing Site","Tooltip")
         await toolTipPage.clickOnATab('Forms Based')
        expect(await toolTipPage.getToolTipTextOfTheForm()).toEqual('Please provide your firstname.')
      })
