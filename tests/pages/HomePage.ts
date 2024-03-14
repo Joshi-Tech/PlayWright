@@ -12,7 +12,6 @@ class HomePage extends BasePage{
     constructor(page:Page){
       super(page)
        this.page=page
-      // this.clickByText("//p[text()='Consent']")
     }
 
   getH2Text(){

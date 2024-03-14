@@ -4,7 +4,6 @@ class BasePage{
 
 constructor(page:Page){
  this.page=page
- page.waitForTimeout(2000)
  if(page.url()==='https://www.globalsqa.com/'){
  this.clickByText("//p[text()='Consent']")
 }
