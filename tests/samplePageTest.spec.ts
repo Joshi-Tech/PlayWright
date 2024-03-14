@@ -31,7 +31,6 @@ expect(await samplePageTest.getPageHeaing()).toEqual('Sample Page Test')
 
     test('User see the current month as a calendar caption',async()=>{
       await  homePage.clickOnSamplePageTestLink()
-        console.log(await samplePageTest.getMonthCaption())
         await samplePageTest.checkUserDetailsLabel()
     })
 
@@ -41,14 +40,7 @@ expect(await samplePageTest.getPageHeaing()).toEqual('Sample Page Test')
        await samplePageTest.typeComments("Lorem Ipsum is simply dummy text of the printing and typesetting industry.");
     await samplePageTest.clickSubmitBtn()
     expect(await samplePageTest.contFormIdH3()).toEqual('Message Sent (go back)')
-    })
-
-  //   test('When user clicks a nav link should be on correct page', async()=>{
-  //     //await  homePage.clickOnSamplePageTestLink()
-    
-  //     await homePage.clickOnNavLink()
-  // })
-    
+    }) 
 })
 
 

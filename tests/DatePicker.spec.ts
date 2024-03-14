@@ -1,10 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
 import Message from './Messages'
-import HomePage from './pages/HomePage'
-import ToolTipsPage from './pages/ToolTipsPage'
-import exp from 'constants'
-import FakeData from './fakeData'
 import DatePicker from './pages/DatePicker'
+import HomePage from './pages/HomePage'
 
 test.describe('Home page related tests',()=>{
     let homePage: HomePage
@@ -29,4 +26,17 @@ test.describe('Home page related tests',()=>{
         await datePicker.clickOnATab('DropDown DatePicker')
       expect(await datePicker.getTabTextMsg('DropDown DatePicker')).toEqual('Pick a date by clicking on the text box.')
      })
+
+     test('Select date from a date picker where you have seperate dropwdown for month and year',async()=>{
+      await homePage.hoverAndClick("Demo Testing Site","DatePicker")
+      await datePicker.clickOnATab('DropDown DatePicker')
+      await datePicker.getDate('DropDown DatePicker','Apr','2027','20')
+   })
+
+   test('Select a date from Simple calendar',async()=>{
+    await homePage.hoverAndClick("Demo Testing Site","DatePicker")
+    await datePicker.clickOnATab('Simple Date Picker')
+    await datePicker.getDate('Simple Date Picker','April','2025','20')
+ })
 })
+
