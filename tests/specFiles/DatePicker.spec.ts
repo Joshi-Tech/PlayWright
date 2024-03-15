@@ -1,7 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
-import Message from './Messages'
-import DatePicker from './pages/DatePicker'
-import HomePage from './pages/HomePage'
+import Message from '../Messages'
+import DatePicker from '../pages/DatePicker'
+import HomePage from '../pages/HomePage'
 
 test.describe('Home page related tests',()=>{
     let homePage: HomePage
@@ -16,6 +16,7 @@ test.describe('Home page related tests',()=>{
         const context = await browser.newContext()
       page= await  context.newPage()
         homePage =  new HomePage(page)
+        homePage.clickByText("//p[text()='Consent']")
         await homePage.navigateTo(endPoint)
         datePicker= new DatePicker(page)
                 

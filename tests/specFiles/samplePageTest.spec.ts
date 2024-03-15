@@ -1,8 +1,8 @@
 import { chromium, expect, test } from '@playwright/test'
-import Message from "./Messages"
-import HomePage from "./pages/HomePage"
-import SamplePageTest from "./pages/SamplePageTest"
-import FakeData from './fakeData'
+import Message from "../Messages"
+import HomePage from "../pages/HomePage"
+import SamplePageTest from "../pages/SamplePageTest"
+import FakeData from '../fakeData'
 
 test.describe('Home page related tests',()=>{
     let samplePageTest: SamplePageTest
@@ -12,15 +12,16 @@ test.describe('Home page related tests',()=>{
 
     test.beforeEach(async ({page}) => {
         const browser = await chromium.launch({
-            headless:true
+            headless:false
         })
         const context = await browser.newContext()
       page= await context.newPage()
-       samplePageTest =  new SamplePageTest(page)
+       
       homePage = new HomePage(page)
     await page.waitForTimeout(1000)
         await homePage.navigateTo(endPoint) 
-        await homePage.findByText("//p[text()='Consent']").click()      
+        await homePage.findByText("//p[text()='Consent']").click()     
+        samplePageTest =  new SamplePageTest(page) 
     })
       
 

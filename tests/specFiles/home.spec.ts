@@ -1,6 +1,6 @@
 import { chromium, expect, test } from '@playwright/test'
-import Message from './Messages'
-import HomePage from './pages/HomePage'
+import Message from '../Messages'
+import HomePage from '../pages/HomePage'
 test.describe('Home page related tests',()=>{
     let homePage: HomePage
     let endPoint="/" 

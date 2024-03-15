@@ -1,12 +1,9 @@
-import { Page, expect } from "@playwright/test"
+import { Page } from "@playwright/test"
 class BasePage{
  page:Page
 
 constructor(page:Page){
  this.page=page
- if(page.url()==='https://www.globalsqa.com/'){
- this.clickByText("//p[text()='Consent']")
-}
 }
 
  async navigateTo(url:string){
@@ -48,10 +45,6 @@ async submit(locator:string){
 
 async getPageTitle(){
   await this.page.title();
-}
-
-async clickByText(text:string){
-  await this.page.locator(text).click()
 }
 
 async clickOnAlert(){
