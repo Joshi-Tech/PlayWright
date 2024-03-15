@@ -86,6 +86,10 @@ async goToFormBaseIframe(firstName:string, lastName:string,address:string){
  await iframeContents?.fill('input#lastname',lastName)
  await iframeContents?.fill('input#address',address)
 }
+
+clickByText(text: string) {
+  this.page.locator(text).click()
+}
 }
 
 

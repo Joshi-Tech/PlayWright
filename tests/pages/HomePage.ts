@@ -7,6 +7,7 @@ import BasePage from "./BasePage"
  */
 
 class HomePage extends BasePage{
+  
     page:Page
 
     constructor(page:Page){

@@ -13,15 +13,14 @@ test.describe('Home page related tests',()=>{
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
-            headless:false
+            headless:true
         })
         const context = await browser.newContext()
       page= await  context.newPage()
         homePage =  new HomePage(page)
         homePage.clickByText("//p[text()='Consent']")
         await homePage.navigateTo(endPoint)
-        toolTipPage= new ToolTipsPage(page)
-                
+        toolTipPage= new ToolTipsPage(page)           
     })
     
     test('User should be able to different tabs',async()=>{
