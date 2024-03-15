@@ -2,10 +2,9 @@ import { chromium, expect, test } from '@playwright/test'
 import Message from '../Messages'
 import HomePage from '../pages/HomePage'
 import ToolTipsPage from '../pages/ToolTipsPage'
-import exp from 'constants'
 import FakeData from '../fakeData'
 
-test.describe('Home page related tests',()=>{
+test.describe('Tool Tips page related tests',()=>{
     let homePage: HomePage
     let toolTipPage:ToolTipsPage
     let endPoint="/" 
@@ -20,7 +19,8 @@ test.describe('Home page related tests',()=>{
         homePage =  new HomePage(page)
         homePage.clickByText("//p[text()='Consent']")
         await homePage.navigateTo(endPoint)
-        toolTipPage= new ToolTipsPage(page)           
+        toolTipPage= new ToolTipsPage(page)
+                
     })
     
     test('User should be able to different tabs',async()=>{

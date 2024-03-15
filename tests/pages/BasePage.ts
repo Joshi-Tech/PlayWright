@@ -91,7 +91,4 @@ async clickByText(text: string) {
  await this.page.locator(text).click()
 }
 }
-
-
-
 export default BasePage
