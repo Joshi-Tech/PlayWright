@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,6 +19,8 @@
     "allure-playwright": "^2.13.0"
   },
   "dependencies": {
-    "eslint-plugin-playwright": "^1.5.1"
+    "eslint-plugin-playwright": "^1.5.1",
+    "playwright": "^1.18.1"
   }
+   
 }
