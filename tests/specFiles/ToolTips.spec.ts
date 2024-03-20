@@ -3,6 +3,7 @@ import Message from '../Messages'
 import HomePage from '../pages/HomePage'
 import ToolTipsPage from '../pages/ToolTipsPage'
 import FakeData from '../fakeData'
+import configValue from '../config'
 
 test.describe('Tool Tips page related tests',()=>{
     let homePage: HomePage
@@ -11,16 +12,17 @@ test.describe('Tool Tips page related tests',()=>{
     let message = new Message('tests/messages.properties')
 
     test.beforeEach(async ({ page }) => {
-        const browser = await chromium.launch({
-            headless:true
-        })
-        const context = await browser.newContext()
-      page= await  context.newPage()
-        homePage =  new HomePage(page)
-      // homePage.clickByText("//p[text()='Consent']") //This is needed for local use
-        await homePage.navigateTo(endPoint)
-        toolTipPage= new ToolTipsPage(page)
-                
+      const browser = await chromium.launch({
+        headless:configValue.headless
+    })
+    const context = await browser.newContext()
+  page= await context.newPage()
+  homePage = new HomePage(page)
+    await homePage.navigateTo(endPoint) 
+    if(!configValue.remote){
+  await homePage.findByText("//p[text()='Consent']").click() 
+  }
+    toolTipPage= new ToolTipsPage(page)         
     })
     
     test('User should be able to different tabs',async()=>{

@@ -1,6 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
 import Message from '../Messages'
 import HomePage from '../pages/HomePage'
+import configValue from '../config'
 test.describe('Home page related tests',()=>{
     let homePage: HomePage
     let endPoint="/" 
@@ -8,7 +9,7 @@ test.describe('Home page related tests',()=>{
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
-            headless:true
+            headless:configValue.headless
         })
         const context = await browser.newContext()
       page= await  context.newPage()

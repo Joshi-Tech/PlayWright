@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage"
 import DropDownPage from "../pages/DropDownPage"
 import FakeData from '../fakeData'
 import SamplePageTest from '../pages/SamplePageTest'
+import configValue from '../config'
 
 test.describe('Drop Down page related tests',()=>{
     let homePage:HomePage
@@ -13,15 +14,16 @@ test.describe('Drop Down page related tests',()=>{
 
     test.beforeEach(async ({page}) => {
         const browser = await chromium.launch({
-            headless:true
+            headless:configValue.headless
         })
         const context = await browser.newContext()
       page= await context.newPage()
-       
       homePage = new HomePage(page)
     await page.waitForTimeout(1000)
         await homePage.navigateTo(endPoint) 
-       // await homePage.findByText("//p[text()='Consent']").click() //This is needed for local use    
+        if(!configValue.remote){
+        await homePage.findByText("//p[text()='Consent']").click() 
+        }
         drowpdownPage=new DropDownPage(page)
     })
 

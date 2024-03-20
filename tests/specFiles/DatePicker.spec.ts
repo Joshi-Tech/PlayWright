@@ -2,6 +2,7 @@ import { chromium, expect, test } from '@playwright/test'
 import Message from '../Messages'
 import DatePicker from '../pages/DatePicker'
 import HomePage from '../pages/HomePage'
+import configValue from '../config'
 
 test.describe('Date Pickers Page related tests',()=>{
     let homePage: HomePage
@@ -11,15 +12,17 @@ test.describe('Date Pickers Page related tests',()=>{
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
-            headless:true
+            headless:configValue.headless
         })
         const context = await browser.newContext()
       page= await  context.newPage()
         homePage =  new HomePage(page)
-      // homePage.clickByText("//p[text()='Consent']") //This is needed for local use
         await homePage.navigateTo(endPoint)
-        datePicker= new DatePicker(page)
-                
+        await page.waitForTimeout(1000)
+        if (!configValue.remote){
+          await homePage.findByText("//p[text()='Consent']").click()
+        }
+        datePicker= new DatePicker(page)       
     })
     
     test('User should be able to submit form which inside iframe',async()=>{
