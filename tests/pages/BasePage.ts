@@ -14,10 +14,6 @@ async findByLink(link:string){
   await  this.page.getByText(link).click()
 }
 
-async hoverByLink(linkText:string){
- await this.page.locator(linkText).hover()
-}
-
 findByCss(css:string){
   return this.page.locator(css)
 }

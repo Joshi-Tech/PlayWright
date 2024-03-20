@@ -72,21 +72,23 @@ class HomePage extends BasePage{
   return h4content
 }
 
-async clickOnNavBar(menu:string){
-  this.findByLink("Contact Us")
-  console.log(await this.getPageTitle())
-}
-
-async clickOnSamplePageTestLink(){
-  await this.hoverByLink('#menu-item-2822')
-  await this.findByCss("#menu-item-2846>a").click()
+/**
+ * Below code will click on the main links of the nav bar and if they has sub menu
+ */
+  async clickOnTab(tabName:string,subMenu:string){
+  await this.findByCss("li[id*='menu-item']>[href*='"+tabName+"']").hover()
+  if(await this.findByCss("ul[class='sub-menu']>li[id*='menu-item']>a[href*='"+subMenu+"']").isVisible()){
+  await this.findByCss("ul[class='sub-menu']>li[id*='menu-item']>a[href*='"+subMenu+"']").click()
+  }else{
+    await this.findByCss("li[id*='menu-item']>[href*='" + tabName + "']").click()
+  }
 }
 
 async hoverAndClick(link:string,subLink:string){
- await this.mutipleHovering("#menu-item-2822","//span[text()='"+link+"']")
- await this.findByText("//span[text()='"+subLink+"']").click()
-}
-
+  await this.mutipleHovering("#menu-item-2822","//span[text()='"+link+"']")
+  await this.findByText("//span[text()='"+subLink+"']").click()
+ }
+ 
 }
 
 export default HomePage

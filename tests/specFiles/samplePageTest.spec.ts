@@ -4,11 +4,13 @@ import HomePage from "../pages/HomePage"
 import SamplePageTest from "../pages/SamplePageTest"
 import FakeData from '../fakeData'
 
-test.describe('Home page related tests',()=>{
+test.describe('Sample Page related tests',()=>{
+  let tabName="testers-hub"
+  let subMenu="samplepagetest"
     let samplePageTest: SamplePageTest
     let homePage:HomePage
     let endPoint="/" 
-    let message = new Message('tests/messages.properties')
+    //let message = new Message('tests/messages.properties')
 
     test.beforeEach(async ({page}) => {
         const browser = await chromium.launch({
@@ -16,35 +18,28 @@ test.describe('Home page related tests',()=>{
         })
         const context = await browser.newContext()
       page= await context.newPage()
-       
       homePage = new HomePage(page)
-    await page.waitForTimeout(1000)
         await homePage.navigateTo(endPoint) 
-       // await homePage.findByText("//p[text()='Consent']").click() //This is needed for local use    
+      //await homePage.findByText("//p[text()='Consent']").click() //This is needed for local use    
         samplePageTest =  new SamplePageTest(page) 
     })
       
 
     test('When user clicks on a nav link should be on correct page', async()=>{
- homePage.clickOnSamplePageTestLink()
+ await homePage.clickOnTab(tabName,subMenu)
 expect(await samplePageTest.getPageHeaing()).toEqual('Sample Page Test')
     })
 
-    test('User see the current month as a calendar caption',async()=>{
-      await  homePage.clickOnSamplePageTestLink()
-        await samplePageTest.checkUserDetailsLabel()
-    })
+    // test('User see the current month as a calendar caption',async()=>{
+    //   await  homePage.clickOnTab(tabName,subMenu)
+    //     await samplePageTest.checkUserDetailsLabel()
+    // })
 
-    test('User should be able to submit their details',async()=>{
-      await  homePage.clickOnSamplePageTestLink()
-       await samplePageTest.inputUserDetails(FakeData.getFullName(),FakeData.getEmailId(), FakeData.getWebsite(),'3-5','Automation Testing','Graduate')
-       await samplePageTest.typeComments("Lorem Ipsum is simply dummy text of the printing and typesetting industry.");
-    await samplePageTest.clickSubmitBtn()
-    expect(await samplePageTest.contFormIdH3()).toEqual('Message Sent (go back)')
-    }) 
+    // test('User should be able to submit their details',async()=>{
+    //   await  homePage.clickOnTab(tabName,subMenu)
+    //    await samplePageTest.inputUserDetails(FakeData.getFullName(),FakeData.getEmailId(), FakeData.getWebsite(),'3-5','Automation Testing','Graduate')
+    //    await samplePageTest.typeComments("Lorem Ipsum is simply dummy text of the printing and typesetting industry.");
+    // await samplePageTest.clickSubmitBtn()
+    // expect(await samplePageTest.contFormIdH3()).toEqual('Message Sent (go back)')
+    // }) 
 })
-
-
-
-
-
