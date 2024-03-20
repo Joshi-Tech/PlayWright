@@ -63,6 +63,4 @@ contFormIdH3(){
 
 }
 
-
-
 export default SamplePageTest

@@ -17,7 +17,7 @@ test.describe('Tool Tips page related tests',()=>{
         const context = await browser.newContext()
       page= await  context.newPage()
         homePage =  new HomePage(page)
-       // homePage.clickByText("//p[text()='Consent']") //This is needed for local use
+      // homePage.clickByText("//p[text()='Consent']") //This is needed for local use
         await homePage.navigateTo(endPoint)
         toolTipPage= new ToolTipsPage(page)
                 

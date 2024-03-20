@@ -1,7 +1,7 @@
 {
   "name": "playwright",
   "version": "1.0.0",
-  "description": "",
+  "description": "Playwright is a one of the popular automation tool. I would say it is an one stop shop which provides which provides almost everything as an **automation tester** required. Best of Playwright I liked are as followings\r * **It is an open source**\r * **Configuration is simple**\r * **It provides cross browser testing e.g. Chromium, WebKit, and Firefox.**\r * **It is compatible with all modern languages e.g. TypeScript, JavaScript, Python, .NET, Java.**\r * **It provides cross-platform testing.**\r * **In the same platform you can do testing either for Desktop or mobile.**\r * **Playwright has Powerful Tooling like Codegen. Generate tests by recording your actions. Save them into any language.**\r * **Playwright inspector. Inspect page, generate selectors, step through the test execution, see click points, explore execution logs.**\r * **Playwright Trace Viewer. Capture all the information to investigate the test failure. Playwright trace contains test execution screencast, live DOM snapshots, action explorer, test source, and many more.**",
   "main": "index.js",
   "scripts": {
     "test": "playwright test"
@@ -12,15 +12,18 @@
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.42.1",
-    "@types/node": "^20.11.24",
+    "@types/node": "^20.11.30",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "allure-commandline": "^2.27.0",
-    "allure-playwright": "^2.13.0"
+    "allure-playwright": "^2.13.0",
+    "playwright": "^1.42.1",
+    "typescript": "^5.4.2"
   },
   "dependencies": {
-    "eslint-plugin-playwright": "^1.5.1",
-    "playwright": "^1.18.1"
+    "eslint-plugin-playwright": "^1.5.1"
+  },
+  "directories": {
+    "test": "tests"
   }
-   
 }

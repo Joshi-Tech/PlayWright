@@ -3,7 +3,7 @@ import Message from '../Messages'
 import DatePicker from '../pages/DatePicker'
 import HomePage from '../pages/HomePage'
 
-test.describe('Home page related tests',()=>{
+test.describe('Date Pickers Page related tests',()=>{
     let homePage: HomePage
     let datePicker:DatePicker
     let endPoint="/" 
@@ -16,7 +16,7 @@ test.describe('Home page related tests',()=>{
         const context = await browser.newContext()
       page= await  context.newPage()
         homePage =  new HomePage(page)
-       // homePage.clickByText("//p[text()='Consent']") //This is needed for local use
+      // homePage.clickByText("//p[text()='Consent']") //This is needed for local use
         await homePage.navigateTo(endPoint)
         datePicker= new DatePicker(page)
                 
