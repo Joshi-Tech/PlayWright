@@ -4,8 +4,8 @@ export interface ConfigFile{
 }
 
 const configValue:ConfigFile={
-remote:false,
-headless:false
+remote:true,
+headless:true
 }
 
 export default configValue
