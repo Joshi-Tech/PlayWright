@@ -39,8 +39,7 @@ await this.findByCss("[st-search='firstName']").fill(firstName)
     async getListOfEmails(name:string){
         let emailList:string[]=[]
       const webTableContents:string[]=  await this.findByXpath('tbody tr td').allTextContents()
-      const webTableContentsFilterByName:string[]=webTableContents.filter(x=>x.includes(name))
-      emailList=webTableContentsFilterByName.filter(x=>x.includes('@'))
+       emailList=webTableContents.filter(x=>x.includes(name)&&x.includes('@'))
       return emailList
     }
 }
