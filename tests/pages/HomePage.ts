@@ -20,11 +20,11 @@ class HomePage extends BasePage{
     }
 
      async getTableHeaderText(){
-    const fristTableRowsValue:string[]=await this.findByXpath("table th").allInnerTexts()
+    const firstTableRowsValue:string[]=await this.findByXpath("table th").allInnerTexts()
     const tableRow:string[]= await  this.findByCss("[class='aqua_table']>tbody>tr").allInnerTexts()
     const firstTableRows:string =   tableRow[0]
-    const fristTableRowsValues:string[]=firstTableRows.split('\t')
-    return fristTableRowsValue
+    const firstTableRowsValues:string[]=firstTableRows.split('\t')
+    return firstTableRowsValue
  }
 
  /**
@@ -34,37 +34,37 @@ class HomePage extends BasePage{
 
  async getTableData(headingName:string){
   const rows=this.findByXpath('tbody th')
-  const datafields=this.findByXpath('tbody td')
-   const dataContnet:string[]=[]
+  const dataFields=this.findByXpath('tbody td')
+   const dataContent:string[]=[]
   for(let i=0;i<await rows.count();i++){
     const heading=(await rows.nth(i).allTextContents()).find(x=>x===headingName)
    if(heading==='Mobile'){
       for(let j=1;j<6;j++){ 
-        const content =  await datafields.nth(1+(j-1)*3).textContent()
+        const content =  await dataFields.nth(1+(j-1)*3).textContent()
         if(content){
-        dataContnet?.push(content)
+        dataContent?.push(content)
         }
       }
     }else if(heading==='Web/Desktop'){
         for(let j=1;j<6;j++){
-          const content =  await datafields.nth((j-1)*3).textContent()
+          const content =  await dataFields.nth((j-1)*3).textContent()
           if(content){
-          dataContnet?.push(content)
+          dataContent?.push(content)
           }
       }
     }else if(heading==='Performance'){
         for(let j=1;j<6;j++){
           if(j===1){
-            await datafields.nth(2).textContent()
+            await dataFields.nth(2).textContent()
           }
-          const content =  await datafields.nth(3*(j-1)+2).textContent()
+          const content =  await dataFields.nth(3*(j-1)+2).textContent()
           if(content){
-          dataContnet?.push(content)
+          dataContent?.push(content)
           }
       }
     }
     }
- return dataContnet
+ return dataContent
 }
 
   async getHeading(){
