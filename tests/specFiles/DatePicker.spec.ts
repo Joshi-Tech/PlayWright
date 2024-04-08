@@ -31,7 +31,7 @@ test.describe('Date Pickers Page related tests',()=>{
       expect(await datePicker.getTabTextMsg('DropDown DatePicker')).toEqual('Pick a date by clicking on the text box.')
      })
 
-     test('Select date from a date picker where you have seperate dropwdown for month and year',async()=>{
+     test('Select date from a date picker where you have separate dropdown for month and year',async()=>{
       await homePage.hoverAndClick("Demo Testing Site","DatePicker")
       await datePicker.clickOnATab('DropDown DatePicker')
       await datePicker.getDate('DropDown DatePicker','Apr','2027','20')
