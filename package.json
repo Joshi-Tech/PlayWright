@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.10.0",
     "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.42.1",
     "@types/node": "^20.11.30",
@@ -17,8 +18,11 @@
     "@typescript-eslint/parser": "^7.1.0",
     "allure-commandline": "^2.27.0",
     "allure-playwright": "^2.13.0",
+    "eslint": "^8.57.0",
+    "globals": "^15.9.0",
     "playwright": "^1.42.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "typescript-eslint": "^8.5.0"
   },
   "dependencies": {
     "eslint-plugin-playwright": "^1.5.1"

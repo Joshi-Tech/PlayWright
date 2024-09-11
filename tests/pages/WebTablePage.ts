@@ -1,6 +1,4 @@
-import { Locator, Page } from "@playwright/test";
 import BasePage from "./BasePage";
-import { count } from "console";
 
 class WebTable extends BasePage{
 

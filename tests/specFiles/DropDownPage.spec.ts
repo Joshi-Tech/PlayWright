@@ -1,16 +1,12 @@
 import { chromium, expect, test } from '@playwright/test'
-import Message from "../Messages"
 import HomePage from "../pages/HomePage"
 import DropDownPage from "../pages/DropDownPage"
-import FakeData from '../fakeData'
-import SamplePageTest from '../pages/SamplePageTest'
 import configValue from '../config'
 
 test.describe('Drop Down page related tests',()=>{
     let homePage:HomePage
     let drowpdownPage:DropDownPage
-    let endPoint="/" 
-    let message = new Message('tests/messages.properties')
+    const endPoint="/" 
 
     test.beforeEach(async ({page}) => {
         const browser = await chromium.launch({

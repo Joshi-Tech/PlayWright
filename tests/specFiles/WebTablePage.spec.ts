@@ -1,16 +1,14 @@
 import { chromium, expect, test } from '@playwright/test'
-import Message from '../Messages'
 import HomePage from '../pages/HomePage'
 import configValue from '../config'
 import WebTablePage from '../pages/WebTablePage'
 test.describe('WebTable page related tests',()=>{
-    let tabName="AngularJS Protractor Practice Site"
-  let subMenu="WebTable"
+    const tabName="AngularJS Protractor Practice Site"
+  const subMenu="WebTable"
     let homePage: HomePage
     let webTable: WebTablePage
-    let endPoint="/" 
-    let message = new Message('tests/messages.properties')
-
+    const endPoint="/" 
+    
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
             headless:configValue.headless

@@ -1,6 +1,5 @@
 import { Page } from "@playwright/test";
 import BasePage from "./BasePage";
-import exp from "constants";
 
 class ToolTipsPage extends BasePage{
 

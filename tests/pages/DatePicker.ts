@@ -41,6 +41,7 @@ this.page=page
         const iframeContents=await (await frame).contentFrame()
       const element=  await iframeContents?.waitForSelector('input#datepicker')
       await element?.click()
+      // eslint-disable-next-line no-constant-condition
       while(true){
         const months=  await iframeContents?.textContent('.ui-datepicker-month')
         const years = await iframeContents?.textContent('.ui-datepicker-year')

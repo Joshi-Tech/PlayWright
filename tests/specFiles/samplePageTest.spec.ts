@@ -1,16 +1,15 @@
 import { chromium, expect, test } from '@playwright/test'
-import Message from "../Messages"
 import HomePage from "../pages/HomePage"
 import SamplePageTest from "../pages/SamplePageTest"
 import FakeData from '../fakeData'
 import configValue from '../config'
 
 test.describe('Sample Page related tests',()=>{
-  let tabName="testers-hub"
-  let subMenu="samplepagetest"
+  const tabName="testers-hub"
+  const subMenu="samplepagetest"
     let samplePageTest: SamplePageTest
     let homePage:HomePage
-    let endPoint="/" 
+    const endPoint="/" 
     //let message = new Message('tests/messages.properties')
 
     test.beforeEach(async ({page}) => {

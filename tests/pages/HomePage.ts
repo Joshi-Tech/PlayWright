@@ -21,9 +21,6 @@ class HomePage extends BasePage{
 
      async getTableHeaderText(){
     const firstTableRowsValue:string[]=await this.findByXpath("table th").allInnerTexts()
-    const tableRow:string[]= await  this.findByCss("[class='aqua_table']>tbody>tr").allInnerTexts()
-    const firstTableRows:string =   tableRow[0]
-    const firstTableRowsValues:string[]=firstTableRows.split('\t')
     return firstTableRowsValue
  }
 

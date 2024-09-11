@@ -4,8 +4,8 @@ import HomePage from '../pages/HomePage'
 import configValue from '../config'
 test.describe('Home page related tests',()=>{
     let homePage: HomePage
-    let endPoint="/" 
-    let message = new Message('tests/messages.properties')
+    const endPoint="/" 
+    const message = new Message('tests/messages.properties')
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({

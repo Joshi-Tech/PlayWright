@@ -1,5 +1,4 @@
 import { chromium, expect, test } from '@playwright/test'
-import Message from '../Messages'
 import HomePage from '../pages/HomePage'
 import ToolTipsPage from '../pages/ToolTipsPage'
 import FakeData from '../fakeData'
@@ -8,8 +7,7 @@ import configValue from '../config'
 test.describe('Tool Tips page related tests',()=>{
     let homePage: HomePage
     let toolTipPage:ToolTipsPage
-    let endPoint="/" 
-    let message = new Message('tests/messages.properties')
+    const endPoint="/" 
 
     test.beforeEach(async ({ page }) => {
       const browser = await chromium.launch({

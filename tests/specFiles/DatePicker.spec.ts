@@ -1,5 +1,4 @@
 import { chromium, expect, test } from '@playwright/test'
-import Message from '../Messages'
 import DatePicker from '../pages/DatePicker'
 import HomePage from '../pages/HomePage'
 import configValue from '../config'
@@ -7,8 +6,7 @@ import configValue from '../config'
 test.describe('Date Pickers Page related tests',()=>{
     let homePage: HomePage
     let datePicker:DatePicker
-    let endPoint="/" 
-    let message = new Message('tests/messages.properties')
+    const endPoint="/" 
 
     test.beforeEach(async ({ page }) => {
         const browser = await chromium.launch({
